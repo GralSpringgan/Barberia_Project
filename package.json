@@ -1,0 +1,27 @@
+{
+  "name": "proyecto_peluqueria",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "css": "gulp css",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GralSpringgan/Barberia_Project.git"
+  },
+  "author": "Laporta Mauricio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GralSpringgan/Barberia_Project/issues"
+  },
+  "homepage": "https://github.com/GralSpringgan/Barberia_Project#readme",
+  "dependencies": {
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.77.8"
+  }
+}
