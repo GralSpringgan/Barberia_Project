@@ -1,0 +1,152 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-servicios{
+    background-color: v.$Naranja;
+
+    .contenedor-servicios{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem;
+    }
+}
+
+.servicios-cursos, .servicios-servicios{
+    display: grid;
+    grid-template-rows: 20% 80%;
+    justify-content: center;
+    width: 100%;
+    height: 70rem;
+
+    @include m.tablet{
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "iconos titulo";   
+    }
+}
+
+.contenedor-cursos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+
+    .iconos{
+        display: flex;
+        flex-direction: column;
+        
+          img{
+            width: 9.5rem;
+            margin: 1.5rem auto ;
+
+            &:hover{
+                animation: iconos 1.5s ease;
+            }
+        }
+
+          label{
+              font-family: v.$FuenteSubtitulo;
+             text-align: center;
+             font-size: 2rem;
+        }
+    }
+}
+
+#margen-titulo{
+    @include m.tablet{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+.titulo-cursos{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: v.$FuenteFirma;
+
+    @include m.tablet{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+//................SERVICIOS................//
+
+
+#div_t2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    #margen-titulo2{
+        margin-top: 8rem;
+    };
+}
+
+.servicios-contenedor{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    grid-area: iconos;
+}
+
+.iconosServicios{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top:3rem ;
+
+    img{
+        width: 12rem;
+        margin-bottom: 0.5rem;
+
+        &:hover{
+            animation: iconos 1.5s ease;
+        }
+    }
+
+    label{
+        font-family: v.$FuenteFirma;
+        font-size: 1.8rem;
+    }
+}
+
+
+
+
+//......animaciones.....
+
+
+@keyframes iconos {
+    20%{
+        width: 13rem;
+    }
+
+    35%{
+        transform: rotate(35deg);
+    }
+
+    50%{
+        transform: rotate(-35deg);
+    }
+
+    80%{
+        transform: rotate(0deg);
+    }
+
+    90%{
+        width:12rem;
+    }
+}

@@ -38,6 +38,11 @@
         font-size: 1.8rem;
         text-align: center;
         line-height: 3rem;
+        margin: 1rem 2rem;
+
+        @include m.pc{
+            font-size: 2rem;
+        }
         
         a{
             color: v.$Naranja;
