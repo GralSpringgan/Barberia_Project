@@ -344,10 +344,14 @@ a {
 }
 .header h1 {
   margin: 5rem auto;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Rye", serif;
+  font-weight: 400;
   font-size: 5rem;
   letter-spacing: 0.5rem;
   color: aliceblue;
+  position: relative;
+  left: -100%;
+  animation: sliderH1 2s ease-out forwards;
 }
 @media (min-width: 758px) {
   .header h1 {
@@ -366,6 +370,9 @@ a {
   font-size: 3rem;
   color: rgb(235, 193, 56);
   margin: 1rem 2rem;
+  position: relative;
+  right: -100%;
+  animation: sliderH3 2s ease-out forwards;
 }
 @media (min-width: 758px) {
   .header h3 {
@@ -444,6 +451,28 @@ a {
   }
 }
 
+@keyframes sliderH1 {
+  90% {
+    left: 5%;
+  }
+  95% {
+    left: -5%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes sliderH3 {
+  90% {
+    right: 5%;
+  }
+  95% {
+    right: -5%;
+  }
+  100% {
+    right: 0%;
+  }
+}
 .contenedor-presentacion {
   display: flex;
   flex-direction: column;
@@ -501,129 +530,180 @@ a {
 }
 
 .contenedor-servicios {
-  background-color: rgb(235, 193, 56);
+  background-image: url(/src/video/cursoGIF.gif);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
 }
-.contenedor-servicios .contenedor-servicios {
+
+.servicios-cursos, .servicios-servicios {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem;
-}
-
-.servicios-cursos, .servicios-servicios {
-  display: grid;
-  grid-template-rows: 20% 80%;
-  justify-content: center;
-  width: 100%;
-  height: 70rem;
-}
-@media (min-width: 758px) {
-  .servicios-cursos, .servicios-servicios {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "iconos titulo";
-  }
-}
-
-.contenedor-cursos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  width: 100%;
-}
-.contenedor-cursos .iconos {
-  display: flex;
-  flex-direction: column;
-}
-.contenedor-cursos .iconos img {
-  width: 9.5rem;
-  margin: 1.5rem auto;
-}
-.contenedor-cursos .iconos img:hover {
-  animation: iconos 1.5s ease;
-}
-.contenedor-cursos .iconos label {
-  font-family: "Great Vibes", "cursive";
-  text-align: center;
-  font-size: 2rem;
-}
-
-@media (min-width: 758px) {
-  #margen-titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: rgb(235, 193, 56);
+  border-radius: 13px;
+  gap: 2rem;
+  width: 90%;
+  margin: 3rem auto;
 }
 
 .titulo-cursos {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: "Dancing Script", "cursive";
-}
-@media (min-width: 758px) {
-  .titulo-cursos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  font-size: 2.5rem;
+  text-decoration: underline;
+  font-family: "Great Vibes", "cursive";
 }
 
-#div_t2 {
+.contenedor-cursos, .servicios-contenedor {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.iconos, .iconosServicios {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#div_t2 #margen-titulo2 {
-  margin-top: 8rem;
+.iconos img:hover, .iconosServicios img:hover {
+  animation: iconoesAnimacion 1s;
+}
+
+.contenedor-cursos {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.contenedor-cursos .iconos {
+  margin: 0.8rem;
+}
+.contenedor-cursos img {
+  width: 80px;
+}
+.contenedor-cursos label {
+  margin: 2rem;
+  color: rgb(22, 22, 22);
+  font-family: "Dancing Script", "cursive";
+  font-size: 2rem;
+  text-align: center;
 }
 
 .servicios-contenedor {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 2rem;
-  grid-area: iconos;
+}
+.servicios-contenedor .iconosServicios {
+  margin: 1rem;
+}
+.servicios-contenedor img {
+  width: 80px;
+}
+.servicios-contenedor label {
+  margin: 2rem;
+  color: rgb(22, 22, 22);
+  font-family: "Dancing Script", "cursive";
+  font-size: 2rem;
+  text-align: center;
 }
 
-.iconosServicios {
+.modal-descripcion {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.contenedor-info-modal {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  gap: 8rem;
+  width: 90%;
+  height: 95%;
+  background-color: aliceblue;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
 }
-.iconosServicios img {
+.contenedor-info-modal .icono-modal {
   width: 12rem;
-  margin-bottom: 0.5rem;
 }
-.iconosServicios img:hover {
-  animation: iconos 1.5s ease;
+@media (min-width: 758px) {
+  .contenedor-info-modal .icono-modal {
+    width: 16rem;
+  }
 }
-.iconosServicios label {
-  font-family: "Dancing Script", "cursive";
+@media (min-width: 1200px) {
+  .contenedor-info-modal .icono-modal {
+    width: 18rem;
+  }
+}
+.contenedor-info-modal .parrafo-modal {
+  text-align: center;
+  font-family: "Epilogue", sans-serif;
   font-size: 1.8rem;
+  margin: 1rem 3rem;
+}
+@media (min-width: 758px) {
+  .contenedor-info-modal .parrafo-modal {
+    font-size: 2.1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .contenedor-info-modal .parrafo-modal {
+    font-size: 2.8rem;
+  }
+}
+.contenedor-info-modal .btnCerrar {
+  width: 10rem;
+  height: 4rem;
+  border-radius: 8px;
+  background-color: #000000;
+  border: none;
+  color: aliceblue;
+  font-size: 1.5rem;
+  font-family: "Dancing Script", "cursive";
+}
+@media (min-width: 758px) {
+  .contenedor-info-modal .btnCerrar {
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .contenedor-info-modal .btnCerrar {
+    width: 11rem;
+    height: 4.5rem;
+    font-size: 1.8rem;
+    margin-top: 10rem;
+  }
+}
+.contenedor-info-modal .btnCerrar:hover {
+  background-color: white;
+  color: #000000;
 }
 
-@keyframes iconos {
+@keyframes iconoesAnimacion {
   20% {
-    width: 13rem;
+    width: 90px;
+    position: relative;
   }
-  35% {
+  60% {
     transform: rotate(35deg);
   }
-  50% {
+  80% {
     transform: rotate(-35deg);
   }
-  80% {
+  95% {
     transform: rotate(0deg);
-  }
-  90% {
-    width: 12rem;
+    width: 80px;
   }
 }

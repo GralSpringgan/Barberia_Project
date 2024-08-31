@@ -29,10 +29,14 @@
 
     h1{
         margin: 5rem auto;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: v.$FuenteTitulo;
+        font-weight: 400;
         font-size: 5rem;
         letter-spacing: .5rem;
         color: aliceblue;
+        position: relative;
+        left: -100%;
+        animation: sliderH1 2s ease-out forwards;
 
         @include m.tablet{
             font-size: 7rem;
@@ -51,6 +55,9 @@
         font-size: 3rem;
         color: v.$Naranja;
         margin: 1rem 2rem;
+        position: relative;
+        right: -100%;
+        animation: sliderH3 2s ease-out forwards;
 
         @include m.tablet{
             font-size: 4rem;
@@ -123,4 +130,31 @@
         font-size: 2.2rem;
         margin: 1rem;
     }
+}
+
+//Apartado animaciones
+
+@keyframes sliderH1 {
+    90%{
+        left: 5%;
+    }
+    95%{
+        left: -5%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+@keyframes sliderH3 {
+    90%{
+        right: 5%;
+    }
+    95%{
+        right: -5%;
+    }
+    100%{
+        right: 0%;
+    }
+    
 }

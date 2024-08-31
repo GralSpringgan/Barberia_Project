@@ -30,8 +30,15 @@
     margin: 0 auto; 
 }
  
-@mixin grid($columnas, $gap:5rem){
+@mixin grid($columnas, $gap:2rem){
     display: grid;
     grid-template-columns: repeat($columnas, 1fr); 
     gap: $gap; 
+}
+
+@mixin flexColum($direccion:center){
+    display: flex;
+    flex-direction: column;
+    justify-content: $direccion;
+    align-items: center;
 }

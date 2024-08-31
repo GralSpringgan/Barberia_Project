@@ -1,152 +1,209 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.contenedor-servicios{
-    background-color: v.$Naranja;
+//generales
 
-    .contenedor-servicios{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        margin: 2rem;
-    }
-}
+.contenedor-servicios{
+    background-image: url(/src/video/cursoGIF.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-color: rgba($color: #000000, $alpha: 70%);
+    background-blend-mode: darken;
+
+    display: flex;
+    flex-direction: column;
+};
 
 .servicios-cursos, .servicios-servicios{
-    display: grid;
-    grid-template-rows: 20% 80%;
-    justify-content: center;
-    width: 100%;
-    height: 70rem;
-
-    @include m.tablet{
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "iconos titulo";   
-    }
-}
-
-.contenedor-cursos{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    width: 100%;
-
-    .iconos{
-        display: flex;
-        flex-direction: column;
-        
-          img{
-            width: 9.5rem;
-            margin: 1.5rem auto ;
-
-            &:hover{
-                animation: iconos 1.5s ease;
-            }
-        }
-
-          label{
-              font-family: v.$FuenteSubtitulo;
-             text-align: center;
-             font-size: 2rem;
-        }
-    }
-}
-
-#margen-titulo{
-    @include m.tablet{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
+    @include m.flexColum(space-between);
+    background-color: v.$Naranja;
+    border-radius: 13px;
+    gap: 2rem;
+    width: 90%;
+    margin: 3rem auto;
 }
 
 .titulo-cursos{
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    font-family: v.$FuenteFirma;
-
-    @include m.tablet{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    font-size: 2.5rem;
+    text-decoration: underline;
+    font-family: v.$FuenteSubtitulo;
 }
 
-//................SERVICIOS................//
-
-
-#div_t2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    #margen-titulo2{
-        margin-top: 8rem;
-    };
-}
-
-.servicios-contenedor{
+//optimizacion de codigo repetido
+.contenedor-cursos, .servicios-contenedor{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-    grid-area: iconos;
-}
-
-.iconosServicios{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     justify-content: center;
     align-items: center;
-    margin-top:3rem ;
+    margin: 1rem auto;
+}
+
+.iconos, .iconosServicios{
+    @include m.flexColum;
 
     img{
-        width: 12rem;
-        margin-bottom: 0.5rem;
-
         &:hover{
-            animation: iconos 1.5s ease;
+            animation: iconoesAnimacion 1s;
         }
+    
+    }
+
+    
+}
+
+//contenedores
+.contenedor-cursos{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    .iconos{ 
+        margin: 0.8rem;
+    }
+    img{
+        width: 80px;
     }
 
     label{
+        margin: 2rem;
+        color: v.$NegroGrisacio;
         font-family: v.$FuenteFirma;
-        font-size: 1.8rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+.servicios-contenedor{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    
+
+    .iconosServicios{
+        margin: 1rem;
+    }
+
+    img{
+        width: 80px;
+    }
+
+    label{
+        margin: 2rem;
+        color: v.$NegroGrisacio;
+        font-family: v.$FuenteFirma;
+        font-size: 2rem;
+        text-align: center;
     }
 }
 
 
 
+//.............MODAL..................
 
-//......animaciones.....
+.modal-descripcion{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 60%);
 
+}
 
-@keyframes iconos {
-    20%{
-        width: 13rem;
+.contenedor-info-modal{
+    @include m.flexColum;
+    gap: 8rem;
+    width: 90%;
+    height: 95%;
+    background-color: aliceblue;
+    margin: 1.5rem auto;
+    border-radius: 1rem;
+
+    .icono-modal{
+        width: 12rem;
+
+        @include m.tablet{
+            width: 16rem;
+        }
+
+        @include m.pc{
+            width: 18rem;
+        }
     }
 
-    35%{
+    .parrafo-modal{
+        text-align: center;
+        font-family: v.$FuentePrincipal;
+        font-size: 1.8rem;
+        margin: 1rem 3rem;
+        
+        @include m.tablet{
+            font-size: 2.1rem;
+        }
+
+        @include m.pc{
+            font-size: 2.8rem;
+        }
+    }
+
+    .btnCerrar{
+        width: 10rem;
+        height: 4rem;
+        border-radius: 8px;
+        background-color: #000000;
+        border: none;
+        color: aliceblue;
+        font-size: 1.5rem;
+        font-family: v.$FuenteFirma;
+
+        @include m.tablet{
+            margin-top: 8rem;
+        }
+
+        @include m.pc{
+            width: 11rem;
+            height: 4.5rem;
+            font-size: 1.8rem;
+            margin-top: 10rem;
+        }
+
+        &:hover{
+            background-color: white;
+            color: #000000;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//animaciones
+
+@keyframes iconoesAnimacion {
+    20%{
+        width: 90px;
+        position: relative;
+    }
+
+    60%{
         transform: rotate(35deg);
     }
 
-    50%{
+    80%{
         transform: rotate(-35deg);
     }
 
-    80%{
+    95%{
         transform: rotate(0deg);
-    }
-
-    90%{
-        width:12rem;
+        width: 80px;
     }
 }
+

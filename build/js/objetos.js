@@ -28,7 +28,7 @@ const imgCursos = [
         img: "src/img/icons/navaja.png",
         nombre : 'Navaja',
         descripcion: 'Uso adecuado de navaja',
-        parrafo:'técnicas avanzadas de corte con navaja, desde el delineado fino hasta el afeitado clásico, asegurando un acabado limpio y profesional.'
+        parrafo:'Técnicas avanzadas de corte con navaja, desde el delineado fino hasta el afeitado clásico, asegurando un acabado limpio y profesional.'
     },
     {
         img: "src/img/icons/postura.png",
