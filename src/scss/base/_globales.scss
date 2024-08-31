@@ -4,6 +4,7 @@ html{
     font-size: 62.5%;
     box-sizing: border-box;
     scroll-padding-top: 0rem;
+    scroll-behavior: smooth;
 }
 
 *,*::before,*:after{
@@ -16,4 +17,5 @@ body{
 
 a{
     text-decoration: none;
+    color: v.$Naranja;
 }

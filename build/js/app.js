@@ -121,3 +121,11 @@ function describirImg(curso){
     })
 
 }
+
+//test
+
+const test = document.querySelector('#tet1');
+
+test.addEventListener('click',()=>{
+    
+})
