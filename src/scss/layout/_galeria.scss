@@ -2,6 +2,88 @@
 @use 'base/mixins' as m;
 
 .contenendor-galeria{
-    border-top: 2px solid v.$Naranja;
-    border-bottom: 2px solid v.$Naranja;
+    border-top: v.$Naranja solid 2px;
+    border-bottom: v.$Naranja solid 2px;
+
+    .titulo-galeria{
+        text-align: center;
+        color: aliceblue;
+       
+        h3{
+            font-family: v.$FuenteFirma;
+            font-size: 3rem;
+           
+        }
+    }
+}
+
+.contenedor-carrusel{
+    border-top: rgb(224, 163, 50) 3px solid;
+    border-bottom: rgb(230, 179, 85) 3px solid;
+    border-radius: 1%;
+    width: 90%;
+    margin: 1rem auto;
+    display: grid;
+    place-content: center;
+
+}
+
+.slider{
+    width: 100%;
+    margin: 1px;
+    overflow: hidden;
+    border-radius: 20%;
+
+    @include m.tablet{
+        border-radius: 1px;
+    }
+
+    ul{
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0 auto;
+        width: 500%;
+        animation: slide 30s alternate infinite;
+        animation-fill-mode: both;
+        @include m.tablet{
+            animation: slide 40s  alternate infinite;
+
+        }
+    }
+}
+
+.img-slider{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    img{
+        max-height: 40rem;
+        height: 50rem;
+        border: 1px solid aliceblue;
+        border-radius: 10px;
+        margin: .5rem 0 .5rem 0;
+
+    }
+}
+
+@keyframes slide {
+    0%{
+        margin-left: 0% ;
+    }
+    20%{
+        margin-left: -100%;
+    }
+
+    40%{
+        margin-left: -200%;
+    }
+    60%{
+        margin-left: -300%;
+    }
+    80%{
+        margin-left: -400%;
+    }
+
 }

@@ -732,6 +732,82 @@ a {
   }
 }
 .contenendor-galeria {
-  border-top: 2px solid rgb(235, 193, 56);
-  border-bottom: 2px solid rgb(235, 193, 56);
+  border-top: rgb(235, 193, 56) solid 2px;
+  border-bottom: rgb(235, 193, 56) solid 2px;
+}
+.contenendor-galeria .titulo-galeria {
+  text-align: center;
+  color: aliceblue;
+}
+.contenendor-galeria .titulo-galeria h3 {
+  font-family: "Dancing Script", "cursive";
+  font-size: 3rem;
+}
+
+.contenedor-carrusel {
+  border-top: rgb(224, 163, 50) 3px solid;
+  border-bottom: rgb(230, 179, 85) 3px solid;
+  border-radius: 1%;
+  width: 90%;
+  margin: 1rem auto;
+  display: grid;
+  place-content: center;
+}
+
+.slider {
+  width: 100%;
+  margin: 1px;
+  overflow: hidden;
+  border-radius: 20%;
+}
+@media (min-width: 758px) {
+  .slider {
+    border-radius: 1px;
+  }
+}
+.slider ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
+  width: 500%;
+  animation: slide 30s alternate infinite;
+  animation-fill-mode: both;
+}
+@media (min-width: 758px) {
+  .slider ul {
+    animation: slide 40s alternate infinite;
+  }
+}
+
+.img-slider {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+.img-slider img {
+  max-height: 40rem;
+  height: 50rem;
+  border: 1px solid aliceblue;
+  border-radius: 10px;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0%;
+  }
+  20% {
+    margin-left: -100%;
+  }
+  40% {
+    margin-left: -200%;
+  }
+  60% {
+    margin-left: -300%;
+  }
+  80% {
+    margin-left: -400%;
+  }
 }
