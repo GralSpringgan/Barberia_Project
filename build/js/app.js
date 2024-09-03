@@ -122,10 +122,37 @@ function describirImg(curso){
 
 }
 
-//test
 
-const test = document.querySelector('#tet1');
 
-test.addEventListener('click',()=>{
-    
+//................................BOTONES REDES SOCIALES....................................
+
+//instagram
+const btnInstagram = document.querySelector('.instagram');
+
+btnInstagram.addEventListener('click',()=>{
+    window.location.href = "https://www.instagram.com/samir_seiden_barberoadomicilio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 })
+
+//facebook
+const btnFacebook = document.querySelector('.facebook');
+
+btnFacebook.addEventListener('click',()=>{
+    window.location.href = 'https://www.facebook.com/samir.lezcano.7';
+})
+
+//Whatsapp
+
+const btnWhatsapp = document.querySelector('.whatsapp');
+
+const nombreUsuario = 'mauri';
+const numerotelefono = 1149608913;
+const mensaje = `Hola Samir como estas, me llamo ${nombreUsuario} y estoy interesado en ... `;
+const codificacion = encodeURIComponent(mensaje);
+
+const whasaaa = `https://api.whatsapp.com/send?phone=${numerotelefono}&text=${codificacion}`;
+
+btnWhatsapp.addEventListener('click', ()=>{
+    window.location.href = whasaaa;
+})
+
+

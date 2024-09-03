@@ -1,0 +1,92 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contacto-titulo h2{
+    font-family: v.$FuenteFirma;
+    text-align: center;
+    font-size: 3rem;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.contacto-items{
+    @include m.tablet{
+        display: flex;
+    }
+}
+
+.contacto-trabajo, .contacto-redes{
+    display: grid;
+
+    h3{
+        color: aliceblue;
+        font-family: v.$FuenteSubtitulo;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    p{
+        color: aliceblue;
+        font-family: v.$FuentePrincipal;
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem 2rem 3rem 2rem;
+
+        span{
+            font-family: v.$FuenteFirma;
+            font-size: 2.5rem;
+        }
+    }
+
+    iframe{
+        width: 95%;
+        margin: 1rem auto;
+        justify-content: center;
+        border-radius: 10px;
+
+        @include m.telefono{
+            width: 80%;
+        }
+    }
+}
+
+.contenedor-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 30rem;
+    margin: 1rem auto;
+    padding: 2rem;
+
+    .btn-social{
+        width: 5rem;
+        transition: .3s ease-in-out;
+
+        &:hover{
+            width: 8rem;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+//FOOTER
+
+.footer{
+    display: grid;
+    background-color: v.$Naranja;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+
+        font-family: v.$FuenteTitulo; 
+        margin: 1rem;   
+    }
+}

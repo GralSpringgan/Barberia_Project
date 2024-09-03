@@ -811,3 +811,81 @@ a {
     margin-left: -400%;
   }
 }
+.contacto-titulo h2 {
+  font-family: "Dancing Script", "cursive";
+  text-align: center;
+  font-size: 3rem;
+  color: aliceblue;
+  text-decoration: underline;
+}
+
+@media (min-width: 758px) {
+  .contacto-items {
+    display: flex;
+  }
+}
+
+.contacto-trabajo, .contacto-redes {
+  display: grid;
+}
+.contacto-trabajo h3, .contacto-redes h3 {
+  color: aliceblue;
+  font-family: "Great Vibes", "cursive";
+  font-size: 2rem;
+  text-align: center;
+}
+.contacto-trabajo p, .contacto-redes p {
+  color: aliceblue;
+  font-family: "Epilogue", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 2rem 3rem 2rem;
+}
+.contacto-trabajo p span, .contacto-redes p span {
+  font-family: "Dancing Script", "cursive";
+  font-size: 2.5rem;
+}
+.contacto-trabajo iframe, .contacto-redes iframe {
+  width: 95%;
+  margin: 1rem auto;
+  justify-content: center;
+  border-radius: 10px;
+}
+@media (min-width: 458px) {
+  .contacto-trabajo iframe, .contacto-redes iframe {
+    width: 80%;
+  }
+}
+
+.contenedor-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 30rem;
+  margin: 1rem auto;
+  padding: 2rem;
+}
+.contenedor-btn .btn-social {
+  width: 5rem;
+  transition: 0.3s ease-in-out;
+}
+.contenedor-btn .btn-social:hover {
+  width: 8rem;
+  cursor: pointer;
+}
+
+.footer {
+  display: grid;
+  background-color: rgb(235, 193, 56);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+.footer h2 {
+  font-family: "Rye", serif;
+  margin: 1rem;
+}
