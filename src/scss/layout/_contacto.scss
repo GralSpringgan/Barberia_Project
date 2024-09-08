@@ -71,6 +71,121 @@
 }
 
 
+//MODAL
+
+.modal-social{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color: #000000, $alpha: 70%);
+
+    .div-modal{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 80%;
+        margin: 2rem auto;
+        background-color: #343f46;
+        border-radius: 10px;
+        padding: 2rem;
+
+        @include m.tablet{
+            width: 70%;
+            height: 60%;
+        }
+
+        @include m.pc{
+            height: 60%;
+            width: 60%;
+        }
+    }
+}
+
+.formulario{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    h3{
+        font-size: 3rem;
+        color: rgba(233, 237, 239, .8);
+    }
+
+    .input-radio, .input{
+        width: 100%;
+        margin: 1rem auto;
+        height: 4rem;
+    }
+
+    .input{
+        border: none;
+        border-radius: 10px;
+        background-color: aliceblue;
+        text-align: center;
+        font-size: 1.8rem;
+        
+    }
+
+    .input-radio {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1rem auto;
+        font-size: 1.5rem;
+        background-color: cadetblue;
+        border: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        
+    }
+
+    label{
+        font-size: 1.8rem;
+        color: rgba(233, 237, 239, .7);
+    }
+
+    input[type="radio"]{
+        display: none;
+
+        &:checked + label{
+            background-color: rgb(167, 214, 96);
+            color: #000000;
+            font-size: 1.5rem;
+        }
+    }
+
+}
+
+
+//botones
+
+.contenedor-btnSocial{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+
+    .btn-social{
+        height: 3rem;
+        width: 10rem;
+        border: none;
+        border-radius: 7px;
+        font-size: 2rem;
+
+    }
+}
+
+#Enviar{
+    background-color: rgb(106, 206, 106);
+}
+
+#Cancelar{
+    background-color: rgb(236, 71, 71);
+}
 
 //FOOTER
 

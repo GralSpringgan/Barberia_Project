@@ -1,3 +1,5 @@
+const body = document.querySelector('body');
+
 //---------------------APARTADO CARRUSEL-------------------//
 
 
@@ -73,7 +75,6 @@ imgServicios.forEach( servicios =>{
 function describirImg(curso){
 
     const sectorModal = document.querySelector('.contenedor-servicios');
-    const body = document.querySelector('body');
     //creando div que funciona como modal
     const modaldiv = document.createElement('DIV');
     modaldiv.classList.add('modal-descripcion');
@@ -140,19 +141,66 @@ btnFacebook.addEventListener('click',()=>{
     window.location.href = 'https://www.facebook.com/samir.lezcano.7';
 })
 
-//Whatsapp
+//.......................MODAL-SOCIAL...........................//
+const btnWhatsapp = document.querySelectorAll('.whatsapp');
+const modal_social = document.querySelector('.modal-social');
+const nombreUsuario = document.querySelector('#nombre');
+const seleccionServicio = document.querySelectorAll('input[name="radio"]')
+const cuidadUsuario = document.querySelector('#ciudad');
+const formulario = document.querySelector('.formulario');
+const btnCerrar = document.querySelector('#Cancelar');
+const datosWhat = {
+    nombre:'',
+    servicio:'',
+    ciudad:'',
+    telefono: 1149608913
+};
 
-const btnWhatsapp = document.querySelector('.whatsapp');
 
-const nombreUsuario = 'mauri';
-const numerotelefono = 1149608913;
-const mensaje = `Hola Samir como estas, me llamo ${nombreUsuario} y estoy interesado en ... `;
-const codificacion = encodeURIComponent(mensaje);
-
-const whasaaa = `https://api.whatsapp.com/send?phone=${numerotelefono}&text=${codificacion}`;
-
-btnWhatsapp.addEventListener('click', ()=>{
-    window.location.href = whasaaa;
+//apertura y cierre
+btnWhatsapp.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        body.style.overflow = 'hidden';
+        modal_social.style.display = 'block';
+    })
 })
+
+btnCerrar.addEventListener('click',()=>{
+    modal_social.style.display  = 'none';
+    body.style.overflow = 'auto';
+})
+
+//formulario
+nombreUsuario.addEventListener('input',(e)=>{
+    datosWhat.nombre = e.target.value;
+});
+cuidadUsuario.addEventListener('input',(e)=>{
+    const msg = `, como referencia resido en la cuidad: ${e.target.value}`
+    datosWhat.ciudad = msg;
+})
+seleccionServicio.forEach(radio =>{
+    radio.addEventListener('change',(e)=>{
+        datosWhat.servicio = e.target.value;
+    })
+})
+
+formulario.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const msgWhatSapp = `Hola Samir, mi nombre es ${datosWhat.nombre} y estoy interesado en ${datosWhat.servicio}${datosWhat.ciudad}`
+    const codificacion = encodeURIComponent(msgWhatSapp);
+    const linkWhatSapp = `https://api.whatsapp.com/send?phone=${datosWhat.telefono}&text=${codificacion}`;
+
+    window.location.href = linkWhatSapp;
+
+    //reset obj
+    resetDatos();
+})
+
+function resetDatos(){
+    Object.values(datosWhat) ='';
+    nombreUsuario.textContent = '';
+    cuidadUsuario.textContent = '';
+}
+
 
 

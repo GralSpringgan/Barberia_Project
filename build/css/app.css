@@ -875,6 +875,106 @@ a {
   cursor: pointer;
 }
 
+.modal-social {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-social .div-modal {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 80%;
+  margin: 2rem auto;
+  background-color: #343f46;
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media (min-width: 758px) {
+  .modal-social .div-modal {
+    width: 70%;
+    height: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-social .div-modal {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+.formulario {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.formulario h3 {
+  font-size: 3rem;
+  color: rgba(233, 237, 239, 0.8);
+}
+.formulario .input-radio, .formulario .input {
+  width: 100%;
+  margin: 1rem auto;
+  height: 4rem;
+}
+.formulario .input {
+  border: none;
+  border-radius: 10px;
+  background-color: aliceblue;
+  text-align: center;
+  font-size: 1.8rem;
+}
+.formulario .input-radio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  background-color: cadetblue;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.formulario label {
+  font-size: 1.8rem;
+  color: rgba(233, 237, 239, 0.7);
+}
+.formulario input[type=radio] {
+  display: none;
+}
+.formulario input[type=radio]:checked + label {
+  background-color: rgb(167, 214, 96);
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.contenedor-btnSocial {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+}
+.contenedor-btnSocial .btn-social {
+  height: 3rem;
+  width: 10rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 2rem;
+}
+
+#Enviar {
+  background-color: rgb(106, 206, 106);
+}
+
+#Cancelar {
+  background-color: rgb(236, 71, 71);
+}
+
 .footer {
   display: grid;
   background-color: rgb(235, 193, 56);
