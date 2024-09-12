@@ -148,6 +148,7 @@ const nombreUsuario = document.querySelector('#nombre');
 const seleccionServicio = document.querySelectorAll('input[name="radio"]')
 const cuidadUsuario = document.querySelector('#ciudad');
 const formulario = document.querySelector('.formulario');
+const contenedorBtn = document.querySelector('.contenedor-btnSocial');
 const btnCerrar = document.querySelector('#Cancelar');
 const datosWhat = {
     nombre:'',
@@ -186,20 +187,77 @@ seleccionServicio.forEach(radio =>{
 
 formulario.addEventListener('submit',(e)=>{
     e.preventDefault();
-    const msgWhatSapp = `Hola Samir, mi nombre es ${datosWhat.nombre} y estoy interesado en ${datosWhat.servicio}${datosWhat.ciudad}`
-    const codificacion = encodeURIComponent(msgWhatSapp);
-    const linkWhatSapp = `https://api.whatsapp.com/send?phone=${datosWhat.telefono}&text=${codificacion}`;
 
-    window.location.href = linkWhatSapp;
+    //alertas
+    verificacionFormulario();
 
-    //reset obj
-    resetDatos();
 })
+
+
+function verificacionFormulario(){
+    let radioCheck = false;
+    let alertabool = false;
+
+    seleccionServicio.forEach(radio=>{
+        if(radio.checked){
+            radioCheck = true
+        }
+    })
+
+    if(!radioCheck || nombreUsuario.value.trim() === ""){
+        noRepetir()
+        alerta(alertabool);
+        return;
+    }else{
+        alertabool = true;
+        noRepetir()
+        alerta(alertabool);
+       
+        setTimeout(() => {
+            
+            //whatsapp
+            const msgWhatSapp = `Hola Samir, mi nombre es ${datosWhat.nombre} y estoy interesado en ${datosWhat.servicio}${datosWhat.ciudad}`
+            const codificacion = encodeURIComponent(msgWhatSapp);
+            const linkWhatSapp = `https://api.whatsapp.com/send?phone=${datosWhat.telefono}&text=${codificacion}`;
+    
+            window.location.href = linkWhatSapp;
+    
+            //reset obj
+            resetDatos();
+        },2000);
+    }
+}
 
 function resetDatos(){
     Object.values(datosWhat) ='';
     nombreUsuario.textContent = '';
     cuidadUsuario.textContent = '';
+}
+
+function alerta(validacion){
+    noRepetir()
+
+    const alerta = document.createElement('DIV');
+    alerta.classList.add('alerta');
+    formulario.insertBefore(alerta, contenedorBtn);
+
+    const alertParrafo = document.createElement('P');
+    alertParrafo.classList.add('alerta-parrafo');
+    alerta.appendChild(alertParrafo);
+
+    if(!validacion){
+        alertParrafo.textContent = 'El campo nombre debe estar lleno y un servicio seleccionado';
+    }else{
+        alerta.classList.add('exito')
+        alertParrafo.textContent = 'Datos cargado correctamente';
+    }
+}
+
+function noRepetir(){
+    const alerta = document.querySelector('.alerta');
+    if(alerta){
+        alerta.remove();
+    }
 }
 
 

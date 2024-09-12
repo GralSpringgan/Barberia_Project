@@ -84,7 +84,7 @@
         justify-content: center;
         align-items: center;
         width: 90%;
-        height: 80%;
+        height: 90%;
         margin: 2rem auto;
         background-color: #343f46;
         border-radius: 10px;
@@ -158,6 +158,31 @@
         }
     }
 
+}
+
+//alerta
+.alerta{
+    width: 80%;
+    border: 1px solid rgb(212, 61, 61);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: rgb(209, 125, 125);
+    .alerta-parrafo{
+        font-size: 1.2rem;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+.exito{
+    border: 1px solid rgb(24, 151, 24);
+    background-color: rgb(114, 170, 114);
+    .alerta-parrafo{
+        font-size: 1.5rem;
+        text-align: center;
+        margin: auto;
+    }
 }
 
 
