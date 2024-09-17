@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -389,6 +390,21 @@ a {
   }
 }
 
+.header-social {
+  height: 4.2rem;
+  margin: 1rem auto;
+  animation: btn-social 2s ease-in-out;
+}
+.header-social img {
+  height: 4rem;
+  margin: 1rem;
+  transition: 0.2s ease;
+}
+.header-social img:hover {
+  height: 4.5rem;
+  cursor: pointer;
+}
+
 .nav-header {
   background-color: rgba(0, 0, 0, 0.7);
   display: grid;
@@ -443,6 +459,12 @@ a {
 }
 .parrafos-nav:hover {
   color: aliceblue;
+  cursor: pointer;
+}
+@media (min-width: 1200px) {
+  .parrafos-nav:hover::before, .parrafos-nav:hover::after {
+    content: "✂️";
+  }
 }
 
 #nav-nombre {
@@ -479,6 +501,11 @@ a {
     right: 0%;
   }
 }
+@keyframes btn-social {
+  0% {
+    opacity: 10%;
+  }
+}
 .contenedor-presentacion {
   display: flex;
   flex-direction: column;
@@ -489,7 +516,7 @@ a {
   border-top: 2px solid rgb(235, 193, 56);
   border-bottom: 2px solid rgb(235, 193, 56);
 }
-@media (min-width: 758px) {
+@media (min-width: 1200px) {
   .contenedor-presentacion {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -532,6 +559,7 @@ a {
 .presentacion-video video {
   max-width: 90%;
   max-height: 80%;
+  border: 1px solid black;
   border-radius: 10px;
 }
 
@@ -744,6 +772,54 @@ a {
   font-size: 3rem;
 }
 
+.contenedor-samir {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0;
+}
+@media (min-width: 758px) {
+  .contenedor-samir {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.samir-foto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+  height: 50rem;
+  margin: 1rem auto;
+  margin-bottom: 0;
+  background-image: url(/src/img/slider/samir3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgba(22, 22, 22, 0.6);
+  background-blend-mode: darken;
+}
+.samir-foto p {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  color: aliceblue;
+  font-family: "Great Vibes", "cursive";
+  color: rgb(235, 193, 56);
+  font-size: 3rem;
+}
+.samir-foto .btn-galeria {
+  width: 8rem;
+  transition: 0.3s ease-in-out;
+}
+.samir-foto .btn-galeria:hover {
+  cursor: pointer;
+  width: 9rem;
+}
+
 .contenedor-carrusel {
   border-top: rgb(224, 163, 50) 3px solid;
   border-bottom: rgb(230, 179, 85) 3px solid;
@@ -752,6 +828,14 @@ a {
   margin: 1rem auto;
   display: grid;
   place-content: center;
+}
+@media (min-width: 758px) {
+  .contenedor-carrusel {
+    border-top: none;
+    border-left: 3px solid rgb(230, 179, 85);
+    border-bottom: none;
+    border-right: 3px solid rgb(230, 179, 85);
+  }
 }
 
 .slider {
@@ -814,9 +898,8 @@ a {
 .contacto-titulo h2 {
   font-family: "Dancing Script", "cursive";
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
   color: aliceblue;
-  text-decoration: underline;
 }
 
 @media (min-width: 758px) {
@@ -831,7 +914,7 @@ a {
 .contacto-trabajo h3, .contacto-redes h3 {
   color: aliceblue;
   font-family: "Great Vibes", "cursive";
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
 }
 .contacto-trabajo p, .contacto-redes p {
@@ -895,12 +978,12 @@ a {
 @media (min-width: 758px) {
   .modal-social .div-modal {
     width: 70%;
-    height: 60%;
+    height: 70%;
   }
 }
 @media (min-width: 1200px) {
   .modal-social .div-modal {
-    height: 60%;
+    height: 80%;
     width: 60%;
   }
 }
@@ -993,10 +1076,12 @@ a {
 
 #Enviar {
   background-color: rgb(106, 206, 106);
+  color: aliceblue;
 }
 
 #Cancelar {
   background-color: rgb(236, 71, 71);
+  color: aliceblue;
 }
 
 .footer {

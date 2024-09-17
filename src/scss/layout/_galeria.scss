@@ -17,6 +17,61 @@
     }
 }
 
+//foto-samir
+
+.contenedor-samir{
+    @include m.grid(1,0);
+
+    @include m.tablet{
+        @include m.grid(2)
+    }
+
+}
+
+
+.samir-foto{
+    @include m.flexColum;
+    gap: 2rem;
+    width: 90%;
+    height: 50rem;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    background-image: url(/src/img/slider/samir3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+
+    background-color: rgba($color: v.$NegroGrisacio, $alpha: 0.6);
+    background-blend-mode: darken;
+
+    p{
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        color: aliceblue;
+        font-family: v.$FuenteSubtitulo;
+        color: v.$Naranja;
+        font-size: 3rem;
+
+
+
+    }
+
+    .btn-galeria{
+        width: 8rem;
+        transition: .3s ease-in-out;
+
+        &:hover{
+            cursor: pointer;
+            width: 9rem;
+        }
+    }
+}
+
+
+
+//carrusel
+
 .contenedor-carrusel{
     border-top: rgb(224, 163, 50) 3px solid;
     border-bottom: rgb(230, 179, 85) 3px solid;
@@ -25,6 +80,13 @@
     margin: 1rem auto;
     display: grid;
     place-content: center;
+
+    @include m.tablet{
+        border-top: none ;
+        border-left: 3px solid rgb(230, 179, 85) ;
+        border-bottom: none;
+        border-right:3px solid rgb(230, 179, 85) ;
+    }
 
 }
 

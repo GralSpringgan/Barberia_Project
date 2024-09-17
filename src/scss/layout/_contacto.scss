@@ -4,9 +4,8 @@
 .contacto-titulo h2{
     font-family: v.$FuenteFirma;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
     color: aliceblue;
-    text-decoration: underline;
 }
 
 .contacto-items{
@@ -21,7 +20,7 @@
     h3{
         color: aliceblue;
         font-family: v.$FuenteSubtitulo;
-        font-size: 2rem;
+        font-size: 3rem;
         text-align: center;
     }
 
@@ -92,11 +91,11 @@
 
         @include m.tablet{
             width: 70%;
-            height: 60%;
+            height: 70%;
         }
 
         @include m.pc{
-            height: 60%;
+            height: 80%;
             width: 60%;
         }
     }
@@ -206,10 +205,12 @@
 
 #Enviar{
     background-color: rgb(106, 206, 106);
+    color: aliceblue;
 }
 
 #Cancelar{
     background-color: rgb(236, 71, 71);
+    color: aliceblue;
 }
 
 //FOOTER

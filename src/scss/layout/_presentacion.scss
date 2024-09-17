@@ -11,7 +11,7 @@
     border-top: 2px solid v.$Naranja;
     border-bottom: 2px solid v.$Naranja;
 
-    @include m.tablet{
+    @include m.pc{
         display: grid;
         grid-template-columns: repeat(2,1fr);
     }
@@ -58,6 +58,7 @@
     video{
         max-width: 90%;
         max-height:80% ;
+        border: 1px solid black;
         border-radius: 10px;
     }
 }

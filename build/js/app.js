@@ -57,7 +57,7 @@ imgServicios.forEach( servicios =>{
     const img = document.createElement('IMG');
     img.src = `${servicios.img}`;
     img.alt = `${servicios.nombre}`;
-    img.id=`${servicios.id}`;
+    img.loading = 'lazy';
     divServicios.appendChild(img);
 
     const label = document.createElement('LABEL');
@@ -92,7 +92,8 @@ function describirImg(curso){
     const divImg = document.createElement('DIV');
     divImg.classList.add('img-modal');
     const img_div = document.createElement('IMG');
-    img_div.src = `${curso.img}`
+    img_div.src = `${curso.img}`;
+    img_div.loading = 'lazy';
     img_div.classList.add('icono-modal');
     divImg.appendChild(img_div);
     div_modal.appendChild(divImg);
@@ -128,18 +129,26 @@ function describirImg(curso){
 //................................BOTONES REDES SOCIALES....................................
 
 //instagram
-const btnInstagram = document.querySelector('.instagram');
+const btnInstagram = document.querySelectorAll('.instagram');
 
-btnInstagram.addEventListener('click',()=>{
-    window.location.href = "https://www.instagram.com/samir_seiden_barberoadomicilio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-})
+btnInstagram.forEach((instagram =>{
+
+    instagram.addEventListener('click',()=>{
+        window.location.href = "https://www.instagram.com/samir_seiden_barberoadomicilio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+    })
+}));
+
 
 //facebook
-const btnFacebook = document.querySelector('.facebook');
+const btnFacebook = document.querySelectorAll('.facebook');
 
-btnFacebook.addEventListener('click',()=>{
-    window.location.href = 'https://www.facebook.com/samir.lezcano.7';
-})
+btnFacebook.forEach((face=>{
+
+    face.addEventListener('click',()=>{
+        window.location.href = 'https://www.facebook.com/samir.lezcano.7';
+    });
+}))
+
 
 //.......................MODAL-SOCIAL...........................//
 const btnWhatsapp = document.querySelectorAll('.whatsapp');
@@ -154,7 +163,7 @@ const datosWhat = {
     nombre:'',
     servicio:'',
     ciudad:'',
-    telefono: 1149608913
+    telefono: 1163043851
 };
 
 
@@ -221,18 +230,10 @@ function verificacionFormulario(){
             const linkWhatSapp = `https://api.whatsapp.com/send?phone=${datosWhat.telefono}&text=${codificacion}`;
     
             window.location.href = linkWhatSapp;
-    
-            //reset obj
-            resetDatos();
         },2000);
     }
 }
 
-function resetDatos(){
-    Object.values(datosWhat) ='';
-    nombreUsuario.textContent = '';
-    cuidadUsuario.textContent = '';
-}
 
 function alerta(validacion){
     noRepetir()

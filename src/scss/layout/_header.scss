@@ -71,6 +71,26 @@
     }
 }
 
+//apartado social
+
+.header-social{
+    height: 4.2rem;
+    margin:1rem auto;
+    animation: btn-social 2s ease-in-out;
+    
+
+    img{
+        height: 4rem;
+        margin: 1rem;
+        transition: .2s ease;
+
+        &:hover{
+            height: 4.5rem;
+            cursor: pointer;
+        }
+    }
+}
+
 //Apartado nav
 
 .nav-header{
@@ -123,6 +143,16 @@
 
     &:hover{
         color: aliceblue;
+        cursor: pointer;
+
+        @include m.pc{
+            &::before, &::after{
+                content: "✂️";
+            }
+        }
+
+        
+
     }
 }
 
@@ -162,4 +192,10 @@
         right: 0%;
     }
     
+}
+
+@keyframes btn-social {
+    0%{
+        opacity: 10%;
+    }
 }
